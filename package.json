@@ -1,0 +1,9 @@
+{
+  "name": "netguru-app",
+  "version": "1.0.0",
+  "description": "Interview process app",
+  "main": "index.js",
+  "repository": "https://github.com/ninsy/netguru-app",
+  "author": "Ninsy ( Kamil Wojciechowski )",
+  "license": "MIT"
+}
