@@ -4,6 +4,24 @@
   "description": "Interview process app",
   "main": "index.js",
   "repository": "https://github.com/ninsy/netguru-app",
+  "scripts": {
+    "start": "node index.js",
+    "start:dev": "nodemon index.js",
+    "test": ""
+  },
   "author": "Ninsy ( Kamil Wojciechowski )",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.18.2",
+    "express": "^4.15.5",
+    "mongoose": "^4.11.13"
+  },
+  "devDependencies": {
+    "dotenv": "^4.0.0",
+    "jest": "^21.2.0",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.12.1",
+    "supertest": "^3.0.0"
+  }
 }
