@@ -15,6 +15,7 @@
     "axios": "^0.16.2",
     "body-parser": "^1.18.2",
     "express": "^4.15.5",
+    "lodash.camelcase": "^4.3.0",
     "mongoose": "^4.11.13"
   },
   "devDependencies": {
