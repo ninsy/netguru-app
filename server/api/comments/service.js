@@ -1,36 +1,40 @@
 const Comment = require('./model');
-const Movie = require('../movies/model');
 
 const endpointErrors = {
   "create": {
-    _400: `Please ensure to provide both 'body' and 'movieId' fields in request body.
+    _400: `Please ensure to provide 'body' field in request body.
           Field body should be of type string, at least 2 characters long,
           maximum 255 characters long.`,
     }
 };
 
 function validateListBody(body) {
-  return body && body.hasOwnProperty('body') && body.hasOwnProperty('movieId');
+  return body && body.length;
 }
 
 const vm = {
   list({movieId}) {
+    let searchObj = {
+      firstParam: {},
+      secondParam: {}
+    };
     if(movieId) {
-      return Movie.findById(movieId)
-        .populate('comments')
-        .exec()
-        .then(movie => {
-          return {
-            comments: movie.comments,
-            movieId
-          }
-        });
+      searchObj.firstParam.movieId = movieId;
+      searchObj.secondParam.movieId = 0;
     }
-    return Comment.find({});
-
+    return Comment.find(searchObj.firstParam, searchObj.secondParam)
+      .then(comments => {
+        return {
+          comments,
+          movieId
+        }
+      });
   },
-  create({body}) {
-    return Comment.create(body);
+  create({body, movieId}) {
+    if(!validateListBody(body)) {
+      return Promise.reject(endpointErrors._400);
+    }
+    return Comment.create({body, movieId});
   }
 };
 

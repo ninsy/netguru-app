@@ -2,7 +2,7 @@ const service = require('./service');
 
 const ctrl = {
   attachMovie(req, res, next, id) {
-    return service.getById({id: req.id})
+    return service.getById({id})
       .then(movie => {
         req.movie = movie;
         next();

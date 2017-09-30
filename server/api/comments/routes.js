@@ -5,4 +5,5 @@ router.route('/')
   .get(ctrl.list)
   .post(ctrl.create);
 
+
 module.exports = router;
