@@ -10,7 +10,8 @@ const endpointErrors = {
     _404: (id) => `No movie with given id: ${id}`
   },
   "remoteRequest": {
-    _400: "Malformed input data: please provide appropriate 'title' field in request body."
+    _400: "Malformed input data: please provide appropriate 'title' field in request body.",
+    _404: (title) => `Couldn't match any film to passed title: ${title}`
   }
 };
 
@@ -70,6 +71,9 @@ const vm = {
     }
     return axios.get(`${config.apiUrl}&query=${querify(body.title)}`)
       .then(response => {
+        if(!response.data.results.length) {
+          return Promise.reject({status: 404, message: endpointErrors.remoteRequest._404(body.title)});
+        }
         let filteredResponse = transformRemoteAPIResponse(response.data);
         delete filteredResponse.id;
         return Movie.create(filteredResponse);

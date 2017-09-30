@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node index.js",
     "start:dev": "nodemon index.js",
-    "test": ""
+    "test": "mocha test/**/*.spec.js"
   },
   "author": "Ninsy ( Kamil Wojciechowski )",
   "license": "MIT",
@@ -20,9 +20,11 @@
   },
   "devDependencies": {
     "dotenv": "^4.0.0",
-    "jest": "^21.2.0",
+    "mocha": "^3.5.3",
     "morgan": "^1.9.0",
     "nodemon": "^1.12.1",
+    "sinon": "^4.0.0",
+    "sinon-mongoose": "^2.0.2",
     "supertest": "^3.0.0"
   }
 }

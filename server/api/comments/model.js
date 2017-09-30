@@ -1,13 +1,11 @@
 const mongoose = require('mongoose');
 
-// TODO: add todo validation - hooks!
-
 const Comment = new mongoose.Schema({
   body: {
     type: String,
     required: true,
-    max: 255,
-    min: 2
+    maxlength: 255,
+    minlength: 2
   },
   movieId: {
     type: mongoose.Schema.Types.ObjectId,
