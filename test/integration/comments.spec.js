@@ -42,18 +42,10 @@ describe('GET /?movieId ; list()', () => {
       .expect(200)
       .expect('Content-Type', /json/)
       .then(response => {
-        console.log("rES:");
-        console.log(response.id);
         assert(response.id, fakeMovie.id);
       });
   });
   it('It should return 404 when movie with given id doesn\'t exsist', () => {
-
-    Comment.findById = jest.fn(() => {
-      console.log("TAJ")
-      return null
-    });
-
     return request(app)
       .get('/api/comments')
       .query({movieId: 'blah'})
