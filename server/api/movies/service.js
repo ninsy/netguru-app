@@ -29,7 +29,6 @@ function simpleFetchQueryParsing(queryStringObject) {
     copy[key] = copy[key].split(' ');
   });
   return copy;
-  // order, limit
 }
 
 function transformRemoteAPIResponse({results}) {
