@@ -1,5 +1,7 @@
 const { URL } = require('url');
 
+require('dotenv').config();
+
 const config = {
   dev: 'dev',
   prod: 'prod',
