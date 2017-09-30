@@ -4,6 +4,7 @@
   "description": "Interview process app",
   "main": "index.js",
   "repository": "https://github.com/ninsy/netguru-app",
+  "engines" : { "node" : ">=8.0.0" },
   "scripts": {
     "start": "node index.js",
     "start:dev": "nodemon index.js",
